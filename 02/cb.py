@@ -52,9 +52,8 @@ print ("lone_sum(3, 2, 3) = " + str(lone_sum(3, 2, 3)))
 def string_splosion(str):
     ans = ""
     i = 1
-    while i <= len(str):
-        ans += str[:i]
-        i += 1
+    for i in range(0,len(str)):
+        ans += str[:i+1]
     return ans
 
 print ("string_splosion('fade') = " + string_splosion('fade'))
