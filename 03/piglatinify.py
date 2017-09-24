@@ -4,6 +4,7 @@ def piglatinify(str):
     ans = ''
     for w in words:
         if not w:
+            print(w)
             ans += ' '
             continue
         first = w[0]
@@ -14,4 +15,5 @@ def piglatinify(str):
         ans += new + ' '
     return ans
 
+print ('i went to             the store')
 print (piglatinify('i went to             the store'))
