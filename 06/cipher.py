@@ -16,8 +16,6 @@ def encode_letter(c,r):
             return chr(place)
         return (chr(65 + (ord(c)+r)%91))
 
-print (encode_letter('t', 48))
-
 #print("encode_letter('A',25)" + ' = ' + encode_letter('A',25))
 #print("encode_letter('a',-2)" + ' = ' + encode_letter('a',-2))
 #print("encode_letter('z',4)" + ' = ' + encode_letter('z',4))
@@ -93,7 +91,7 @@ def decode(s):
 s = "The mitochondria is the powerhouse of the cell"
 print('The string we will be encoding is: \n' + s)
 print('')
-rotation = 48
+rotation = 4812893
 ciphed = encode_string(s,rotation)
 print('Applying a cipher of ' + str(rotation) + ' to the string returns: \n' + ciphed)
 print('')
