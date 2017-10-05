@@ -94,3 +94,7 @@ ciphed = encode_string(s,rotation)
 print('Applying a cipher of ' + str(rotation) + ' to the string returns: \n' + ciphed)
 print('')
 print('Feeding the ciphed string into the decode function returns: \n' + decode(ciphed))
+
+
+f = open('book.txt').read()
+words = f.split(' ')
