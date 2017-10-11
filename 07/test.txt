@@ -1,0 +1,7 @@
+To get more familiar with text files in Python, let’s create our own and do some additional exercises.
+
+Using a simple text editor, let’s create a file. You can name it anything you like, and it’s better to use something you’ll identify with.
+
+For the purpose of this tutorial, however, we are going to call it “testfile.txt”.
+
+Just create the file and leave it blank. 

@@ -87,14 +87,37 @@ def decode(s):
     return r
 
 s = "The mitochondria is the powerhouse of the cell"
-print('The string we will be encoding is: \n' + s)
-print('')
+#print('The string we will be encoding is: \n' + s)
+#print('')
 rotation = -259999
 ciphed = encode_string(s,rotation)
-print('Applying a cipher of ' + str(rotation) + ' to the string returns: \n' + ciphed)
-print('')
-print('Feeding the ciphed string into the decode function returns: \n' + decode(ciphed))
+#print('Applying a cipher of ' + str(rotation) + ' to the string returns: \n' + ciphed)
+#print('')
+#rint('Feeding the ciphed string into the decode function returns: \n' + decode(ciphed))
 
 
-f = open('book.txt').read()
-words = f.split(' ')
+################################
+################################
+################################
+
+
+
+def make_freq_list(f):
+    f = open(f).read()
+    words = f.split()
+    print(words)
+    freq = []
+    for i in range(0,26):
+        freq.append(0)
+    total_letters = 0
+    for word in words:
+        for letter in word:
+            place = ord(letter.lower())
+            if place < 123 and place > 96:
+                total_letters += 1
+                freq[place-97] += 1
+    for i in range(0,26):
+        freq[i] = freq[i] / float(total_letters)
+    return freq
+
+print(make_freq_list('test.txt'))
