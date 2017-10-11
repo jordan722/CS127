@@ -70,42 +70,10 @@ def build_frequency_vector(s):
         v.append(s.count(letter)/num_letters)
     return v
 
-stats = [0.08167,0.01492,0.02782,0.04253,0.12702,0.02228,0.02015,0.06094,0.06966,0.00153,0.00772,0.04025,0.02406,0.06749,0.07507,0.01929,0.00095,0.05987,0.06327,0.09056,0.02758,0.00978,0.02360,0.00150,0.01974,0.00074]
-
-d = build_frequency_vector('The mitochondria is the powerhouse of he cell')
-
-def decode(s):
-    l = full_encode(s).split('\n')
-    curr_dist = distance(stats,build_frequency_vector(l[0]))
-    r = l[0]
-    for ciph in l[1:]:
-        new_dist = distance(stats,build_frequency_vector(ciph))
-        #print (ciph)
-        if new_dist < curr_dist:
-            curr_dist = new_dist
-            r = ciph
-    return r
-
-s = "The mitochondria is the powerhouse of the cell"
-#print('The string we will be encoding is: \n' + s)
-#print('')
-rotation = -259999
-ciphed = encode_string(s,rotation)
-#print('Applying a cipher of ' + str(rotation) + ' to the string returns: \n' + ciphed)
-#print('')
-#rint('Feeding the ciphed string into the decode function returns: \n' + decode(ciphed))
-
-
-################################
-################################
-################################
-
-
 
 def make_freq_list(f):
     f = open(f).read()
     words = f.split()
-    print(words)
     freq = []
     for i in range(0,26):
         freq.append(0)
@@ -120,4 +88,30 @@ def make_freq_list(f):
         freq[i] = freq[i] / float(total_letters)
     return freq
 
-print(make_freq_list('test.txt'))
+stats = make_freq_list('Sherlock.txt')
+
+def decode(s):
+    l = full_encode(s).split('\n')
+    curr_dist = distance(stats,build_frequency_vector(l[0]))
+    r = l[0]
+    for ciph in l[1:]:
+        new_dist = distance(stats,build_frequency_vector(ciph))
+        #print (ciph)
+        if new_dist < curr_dist:
+            curr_dist = new_dist
+            r = ciph
+    return r
+
+s = "The mitochondria is the powerhouse of the cell"
+print('The string we will be encoding is: \n' + s)
+print('')
+rotation = -259234
+ciphed = encode_string(s,rotation)
+print('Applying a cipher of ' + str(rotation) + ' to the string returns: \n' + ciphed)
+print('')
+print('Feeding the ciphed string into the decode function returns: \n' + decode(ciphed))
+
+
+################################
+################################
+################################
