@@ -71,8 +71,8 @@ def build_frequency_vector(s):
     return v
 
 
-def make_freq_list(f):
-    f = open(f).read()
+def make_freq_list(fname):
+    f = open(fname).read()
     words = f.split()
     freq = []
     for i in range(0,26):
