@@ -24,6 +24,44 @@ def make_scrabble_board():
         board[r][c] = 'd'
     return board
 
+def score(w,b):
+    print(b)
+    values = {1:['A','E','I','O','U','L','N','R','S','T'],
+    2:['D','G'],
+    3:['B','C','M','P'],
+    4:['F','H','V','W','Y'],
+    5:['K'],
+    8:['J','X'],
+    10:['Q','Z']}
+    ans = 0
+    for letter,p in zip(w,b):
+        for key,val in values.items():
+            if letter.upper() in val:
+                add = key
+                if p == 'd':
+                    add *= 2
+                if p == 't':
+                    add *= 3
+                ans += add
+    for i in range(0,b.count('D')):
+        ans *= 2
+    for i in range(0,b.count('T')):
+        ans *= 3
+    return ans
+
+def add_word_across(board,word,r,c):
+    if (c+len(word)) > len(board[r]):
+        return 0
+    b = board[r][c:c+len(word)]
+    return score(word,b)
+
+def add_word_down(board,word,r,c):
+    if (r+len(word)) > len(board):
+        return 0
+    b = []
+    for i in range(0,len(word)):
+        b.append(board[r+i][c])
+    return score(word,b)
 
 def print_board(b):
     for line in b:
@@ -31,3 +69,6 @@ def print_board(b):
 
 board = make_scrabble_board()
 print_board(board)
+
+print(add_word_across(board,'zebra',0,2))
+print(add_word_down(board,'zebra',0,2))
