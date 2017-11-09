@@ -1,5 +1,5 @@
 def remove_nonalpha(w):
-    result=""
+    result=''
     for l in w:
         if l.isalpha():
             result = result + l
@@ -14,7 +14,6 @@ def freq(wordlist):
 
 def word_freq(f):
     f = open(f).read()
-    print(f)
     l=[]
     for w in f.split():
         w = w.lower()
@@ -23,6 +22,21 @@ def word_freq(f):
     d = freq(l)
     return d
 
+def word_dict(f):
+    f = open(f).read()
+    words = [remove_nonalpha(w) for w in f.split()]
+    d = {}
+    print (words)
+    for i in range(0,len(words)-1):
+        w = words[i]
+        wnext = words[i+1]
+        if w in d:
+            d[w].append(wnext)
+        else:
+            d[w] = [wnext]
+    last = words[len(words)-1]
+    if last not in d:
+        d[last] = []
+    return d
 
-d = word_freq("hamlet.txt")
-print(d)
+print word_dict('hamlet.txt')
