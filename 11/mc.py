@@ -34,5 +34,5 @@ def generate_text(d, start_word, length=50):
         n = random.choice(d[key])
     return " ".join(wordlist)
 
-
+print make_chain('hamlet.txt')
 print generate_text(make_chain('hamlet.txt'), 'to')
