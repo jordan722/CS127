@@ -52,15 +52,12 @@ std::string tri2(int h) {
   int length = 2*h-1;
   int filler = (length-1)/2;
   while (filler >= 0){
-    std::string space;
     for(int i = 0; i < filler; ++i){
-      space += " ";
+      s+= " ";
     }
-    s += space;
     for(int i = 0; i < length-filler*2;++i){
       s += "*";
     }
-    s+= space;
     --filler;
     s += "\n";
   }
